@@ -261,7 +261,7 @@ const Home = ({ data }) => {
       <SEO title="hues: Art, Tools, & Resources for Global Justice" description="Created by Sam Killermann + Friends and offered in the spirit of gift economy." />
       <Box style={{ padding: "6vw 4vw 2vw"}}>
         <Intro as="h1">
-          hues is <AniLink className="art-text" paintDrip hex="#FFC033" to={`/art/`} duration={.7}>Art</AniLink>, <AniLink className="tools-text" paintDrip hex="#FF40DA" to={`/tools/`} duration={.7}>Tools</AniLink>, &amp; <AniLink className="resources-text" paintDrip hex="#2C91C3" to={`/resources/`} duration={.7}>Resources</AniLink> for Global Justice created by Sam Killermann + Friends
+          hues is <AniLink paintDrip hex="#FFC033" to={`/art/`} duration={.7} style={{background: "#FFC033", color: "#946500", padding: "0 .125em"}}>Art</AniLink>, <AniLink paintDrip hex="#FF40DA" to={`/tools/`} duration={.7} style={{background: "#FF40DA", color: "#8A006E", padding: "0 .125em"}}>Tools</AniLink>, &amp; <AniLink paintDrip hex="#42c0ff" to={`/resources/`} duration={.7} style={{background: "#42c0ff", color: "#006699", padding: "0 .125em"}}>Resources</AniLink> for Global Justice created by Sam Killermann + Friends
         </Intro>
         <Box mt={[3, 0]}> 
           <Description>Offered in the spirit of the gift economy</Description>
