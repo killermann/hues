@@ -2,7 +2,7 @@ import React from "react";
 import SEO from "../components/seo";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
-import { Box, Heading } from "rebass";
+import { Box, Heading, Text } from "rebass";
 import styled from "styled-components";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
@@ -12,23 +12,13 @@ export const Intro = styled(Heading)`
   color: ${props => props.theme.colors.black};
   font-weight: 700;
   text-transform: uppercase;
-  line-height: 1.2;
+  line-height: 1;
   text-align: center;
   margin: 0;
-  font-size: ${props => props.theme.fontSizes[5]}px;
+  font-size: ${props => props.theme.fontSizes[4]}px;
 
-  a {
-    padding:0 .15em;
-    text-decoration: none;
-    display: inline-block;
-    background: hsl(312, 100%, 63%);
-    color: rgba(0,0,0,.95) !important;
-  }
-
-  span {
-    font-size: .5em;
-    line-height: .5em;
-    color: ${props => props.theme.colors.grey};
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    font-size: ${props => props.theme.fontSizes[5]}px;
   }
 
   @media (min-width: ${props => props.theme.breakpoints[2]}) {
@@ -36,6 +26,19 @@ export const Intro = styled(Heading)`
   }
 `;
 
+export const Description = styled(Text)`
+  font-weight: 400;
+  color: ${props => props.theme.colors.grey};
+  font-size: ${props => props.theme.fontSizes[2]}px;
+  line-height: 1.2;
+  text-align: center;
+  margin: 1em auto 0;
+  max-width: 30em;
+
+  @media (min-width: ${props => props.theme.breakpoints[2]}) {
+    font-size: ${props => props.theme.fontSizes[3]}px;
+  }
+`;
 
 const Title = styled(Heading)`
   text-transform: uppercase;
@@ -55,6 +58,22 @@ const Grid = styled(Box)`
   padding: 4vw;
   font-size: ${props => props.theme.fontSizes[3]}px;
 
+  .hue {
+    position: relative;
+  }
+
+  .hue:hover:after {
+    display: block;
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    bottom: -40px;
+    left: -40px;
+    z-index: -2;
+    opacity: .5;
+  }
+
   .hue a {
     display: flex;
     color: rgba(0,0,0,.85);
@@ -62,9 +81,6 @@ const Grid = styled(Box)`
     flex-direction: column;
     text-decoration: none;
     height: 100%;
-  }
-
-  .hue {
     overflow: hidden;
   }
 
@@ -89,6 +105,10 @@ const Grid = styled(Box)`
     animation-timing-function: linear;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+  }
+
+  .hue.tools:hover:after {
+    background: url("data:image/svg+xml,  %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2080%2080%22%3E%3Cpath%20d%3D%22M13%2015L1%2027a4%204%200%20000%206%204%204%200%20006%200l10-10a5%205%200%20011-3zM4%2032a2%202%200%20112-2%202%202%200%2001-2%202zM34%207a1%201%200%2000-1%200l-5%205-5-1V7l5-5a1%201%200%20000-1l-1-1a10%2010%200%2000-9%203%2010%2010%200%2000-2%2010h-1l5%205a5%205%200%20016%201%2010%2010%200%20006-2%2010%2010%200%20002-10z%22%20style%3D%22isolation%3Aisolate%22%20fill%3D%22%23ff40da%22%20opacity%3D%22.4%22%2F%3E%3Cpath%20d%3D%22M34%2027a3%203%200%20010%203l-4%204a3%203%200%2001-3%200l-8-8a5%205%200%2001-1-6l-7-7H7L0%204l4-4%209%207v4l7%207a5%205%200%20016%201z%22%20fill%3D%22%23ff40da%22%2F%3E%3Cpath%20d%3D%22M54%2056L42%2068a4%204%200%20006%206l10-10a5%205%200%20011-3zm-9%2017a2%202%200%20112-2%202%202%200%2001-2%202zm30-25a1%201%200%2000-1%200l-5%205-5-1v-4l5-5a1%201%200%20000-1l-1-1a10%2010%200%2000-11%2013h-1l5%205a5%205%200%20016%201%2010%2010%200%20006-2%2010%2010%200%20002-10z%22%20style%3D%22isolation%3Aisolate%22%20fill%3D%22%23ff40da%22%20opacity%3D%22.4%22%2F%3E%3Cpath%20d%3D%22M75%2068a3%203%200%20010%203l-4%204a3%203%200%2001-3%200l-8-8a5%205%200%2001-1-6l-7-7h-4l-7-9%204-4%209%207v4l7%207a5%205%200%20016%201z%22%20fill%3D%22%23ff40da%22%2F%3E%3C%2Fsvg%3E") round;
   }
 
   .hue.tools:nth-of-type(8n+1) a{ background-color: hsl(312, 100%, 63%);}
@@ -126,7 +146,7 @@ const GridItem = ({ project }) => {
           <Img fluid={project.featuredPhoto.fluid} />
           <Box style={{
             background: "#F7F7F7",
-            padding: ".125em 0 0",
+            padding: ".125em .05em .125em",
             position: "relative",
             zIndex: "3"
           }}>
@@ -147,7 +167,7 @@ const GridItem = ({ project }) => {
           <Img fluid={project.featuredPhoto.fluid} />
           <Box style={{
             background: "#F7F7F7",
-            padding: ".125em 0 0",
+            padding: ".125em .05em .125em",
             position: "relative",
             zIndex: "3"
           }}>
@@ -161,14 +181,14 @@ const GridItem = ({ project }) => {
       <Box className={`hue ${project.section.slug}`} mb={1}>
         <AniLink
           paintDrip
-          hex="#41C0FF"
+          hex="#42c0ff"
           to={`/${project.slug}`}
           duration={.7}
         >
           <Img fluid={project.featuredPhoto.fluid} />
           <Box style={{
             background: "#F7F7F7",
-            padding: ".125em 0 0",
+            padding: ".125em .05em .125em",
             position: "relative",
             zIndex: "3"
           }}>
@@ -190,7 +210,7 @@ const GridItem = ({ project }) => {
           <Img fluid={project.featuredPhoto.fluid} />
           <Box style={{
             background: "#F7F7F7",
-            padding: ".125em 0 0",
+            padding: ".125em .05em .125em",
             position: "relative",
             zIndex: "3"
           }}>
@@ -202,15 +222,18 @@ const GridItem = ({ project }) => {
   }
 };
 
-const Home = ({ data }) => {
+const Tools = ({ data }) => {
   const Projects = data.projects.edges;
   return (
     <Layout>
       <SEO title="Tools created by Sam Killermann + Friends" description="Books, edugraphics, theoretical models, toilet signs, and more tools for global justice offered in the spirit of gift economy." />
       <Box style={{ padding: "6vw 4vw 2vw"}}>
         <Intro as="h1">
-        <AniLink paintDrip hex="#FF40DA" to={`/tools/`} duration={.7}>Tools</AniLink><br/> <span>by Sam Killermann + Friends</span>
+         <span className="tools-text">Tools</span>
         </Intro>
+        <Box mt={[3, 0]}> 
+          <Description>hues by sK + Friends</Description>
+        </Box>
       </Box>
       <Grid>
       {Projects.map(project => (
@@ -242,4 +265,4 @@ export const query = graphql`
   }
 `;
 
-export default Home;
+export default Tools;

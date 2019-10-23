@@ -2,7 +2,7 @@ import React from "react";
 import SEO from "../components/seo";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
-import { Box, Heading } from "rebass";
+import { Box, Heading, Text } from "rebass";
 import styled from "styled-components";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
@@ -12,34 +12,13 @@ export const Intro = styled(Heading)`
   color: ${props => props.theme.colors.black};
   font-weight: 700;
   text-transform: uppercase;
-  line-height: 1.2;
+  line-height: 1;
   text-align: center;
   margin: 0;
-  font-size: ${props => props.theme.fontSizes[5]}px;
+  font-size: ${props => props.theme.fontSizes[4]}px;
 
-  a {
-    padding:0 .15em;
-    text-decoration: none;
-    display: inline-block;
-    color: rgba(0,0,0,.95) !important;
-  }
-
-  a:nth-of-type(1){
-    background: hsl(41, 100%, 60%);
-  }
-
-  a:nth-of-type(2){
-    background: hsl(312, 100%, 63%);
-  }
-
-  a:nth-of-type(3){
-    background: hsl(200, 100%, 63%);
-  }
-
-  span {
-    font-size: .5em;
-    line-height: .5em;
-    color: ${props => props.theme.colors.grey};
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    font-size: ${props => props.theme.fontSizes[5]}px;
   }
 
   @media (min-width: ${props => props.theme.breakpoints[2]}) {
@@ -47,6 +26,19 @@ export const Intro = styled(Heading)`
   }
 `;
 
+export const Description = styled(Text)`
+  font-weight: 400;
+  color: ${props => props.theme.colors.grey};
+  font-size: ${props => props.theme.fontSizes[2]}px;
+  line-height: 1.2;
+  text-align: center;
+  margin: 1em auto 0;
+  max-width: 30em;
+
+  @media (min-width: ${props => props.theme.breakpoints[2]}) {
+    font-size: ${props => props.theme.fontSizes[3]}px;
+  }
+`;
 
 const Title = styled(Heading)`
   text-transform: uppercase;
@@ -66,6 +58,22 @@ const Grid = styled(Box)`
   padding: 4vw;
   font-size: ${props => props.theme.fontSizes[3]}px;
 
+  .hue {
+    position: relative;
+  }
+
+  .hue:hover:after {
+    display: block;
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    bottom: -40px;
+    left: -40px;
+    z-index: -2;
+    opacity: .5;
+  }
+
   .hue a {
     display: flex;
     color: rgba(0,0,0,.85);
@@ -73,9 +81,6 @@ const Grid = styled(Box)`
     flex-direction: column;
     text-decoration: none;
     height: 100%;
-  }
-
-  .hue {
     overflow: hidden;
   }
 
@@ -102,6 +107,10 @@ const Grid = styled(Box)`
     animation-fill-mode: forwards;
   }
 
+  .hue.art:hover:after {
+    background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2080%2080%22%3E%3Cpath%20d%3D%22M2%209l6%207%206-7-4-7C6-3-3%204%202%209zm28%2017a1%201%200%2001-1-1%207%207%200%2000-5-4l-7%206c1%204%204%207%208%207%206%200%209-5%209-10l-4%202z%22%20style%3D%22isolation%3Aisolate%22%20fill%3D%22%23ffc033%22%20opacity%3D%22.4%22%2F%3E%3Cpath%20d%3D%22M2%2025l-2%207a1%201%200%20001%202h1l7-1%2019-20-7-7zM33%204l-3-3a3%203%200%2000-5%200h1l-3%203%207%207%203-3a3%203%200%20000-4z%22%20fill%3D%22%23ffc033%22%2F%3E%3Cpath%20d%3D%22M43%2050l6%207%207-7-5-6c-4-6-13%201-8%206zm28%2017a1%201%200%2001-1-1c-1-3-3-4-5-4l-7%206c1%205%204%207%209%207s8-5%208-10l-4%202z%22%20style%3D%22isolation%3Aisolate%22%20fill%3D%22%23ffc033%22%20opacity%3D%22.4%22%2F%3E%3Cpath%20d%3D%22M43%2066l-2%207a2%202%200%20002%202l7-1%2020-20-8-7zm31-21l-3-3a3%203%200%2000-4%200l-3%203%207%208%203-3a3%203%200%20000-5z%22%20fill%3D%22%23ffc033%22%2F%3E%3C%2Fsvg%3E") round;
+  }
+
   .hue.art:nth-of-type(8n+1) a{ background-color: hsl(41, 100%, 60%); }
   .hue.art:nth-of-type(8n+2) a{ background-color: hsl(51, 100%, 60%); }
   .hue.art:nth-of-type(8n+3) a{ background-color: hsl(61, 100%, 60%); }
@@ -110,24 +119,6 @@ const Grid = styled(Box)`
   .hue.art:nth-of-type(8n+6) a{ background-color: hsl(31, 100%, 60%); }
   .hue.art:nth-of-type(8n+7) a{ background-color: hsl(21, 100%, 60%); }
   .hue.art:nth-of-type(8n+8) a{ background-color: hsl(31, 100%, 60%); }
-
-  .hue.tools:nth-of-type(8n+1) a{ background-color: hsl(312, 100%, 63%);}
-  .hue.tools:nth-of-type(8n+2) a{ background-color: hsl(322, 100%, 63%); }
-  .hue.tools:nth-of-type(8n+3) a{ background-color: hsl(332, 100%, 63%); }
-  .hue.tools:nth-of-type(8n+4) a{ background-color: hsl(322, 100%, 63%); }
-  .hue.tools:nth-of-type(8n+5) a{ background-color: hsl(312, 100%, 63%); }
-  .hue.tools:nth-of-type(8n+6) a{ background-color: hsl(302, 100%, 63%); }
-  .hue.tools:nth-of-type(8n+7) a{ background-color: hsl(292, 100%, 63%); }
-  .hue.tools:nth-of-type(8n+8) a{ background-color: hsl(282, 100%, 63%); }
-
-  .hue.resources:nth-of-type(8n+1) a{ background-color: hsl(200, 100%, 63%); }
-  .hue.resources:nth-of-type(8n+2) a{ background-color: hsl(210, 100%, 63%); }
-  .hue.resources:nth-of-type(8n+3) a{ background-color: hsl(220, 100%, 63%); }
-  .hue.resources:nth-of-type(8n+4) a{ background-color: hsl(210, 100%, 63%); }
-  .hue.resources:nth-of-type(8n+5) a{ background-color: hsl(200, 100%, 63%); }
-  .hue.resources:nth-of-type(8n+6) a{ background-color: hsl(190, 100%, 63%); }
-  .hue.resources:nth-of-type(8n+7) a{ background-color: hsl(180, 100%, 63%); }
-  .hue.resources:nth-of-type(8n+8) a{ background-color: hsl(190, 100%, 63%); }
 
   @media (min-width: ${props => props.theme.breakpoints[1]}) {
 
@@ -155,7 +146,7 @@ const GridItem = ({ project }) => {
           <Img fluid={project.featuredPhoto.fluid} />
           <Box style={{
             background: "#F7F7F7",
-            padding: ".125em 0 0",
+            padding: ".125em .05em .125em",
             position: "relative",
             zIndex: "3"
           }}>
@@ -176,7 +167,7 @@ const GridItem = ({ project }) => {
           <Img fluid={project.featuredPhoto.fluid} />
           <Box style={{
             background: "#F7F7F7",
-            padding: ".125em 0 0",
+            padding: ".125em .05em .125em",
             position: "relative",
             zIndex: "3"
           }}>
@@ -190,14 +181,14 @@ const GridItem = ({ project }) => {
       <Box className={`hue ${project.section.slug}`} mb={1}>
         <AniLink
           paintDrip
-          hex="#41C0FF"
+          hex="#42c0ff"
           to={`/${project.slug}`}
           duration={.7}
         >
           <Img fluid={project.featuredPhoto.fluid} />
           <Box style={{
             background: "#F7F7F7",
-            padding: ".125em 0 0",
+            padding: ".125em .05em .125em",
             position: "relative",
             zIndex: "3"
           }}>
@@ -219,7 +210,7 @@ const GridItem = ({ project }) => {
           <Img fluid={project.featuredPhoto.fluid} />
           <Box style={{
             background: "#F7F7F7",
-            padding: ".125em 0 0",
+            padding: ".125em .05em .125em",
             position: "relative",
             zIndex: "3"
           }}>
@@ -231,15 +222,19 @@ const GridItem = ({ project }) => {
   }
 };
 
-const Home = ({ data }) => {
+
+const Art = ({ data }) => {
   const Projects = data.projects.edges;
   return (
     <Layout>
       <SEO title="Art created by Sam Killermann + Friends" description="Comedy shows, shirts, greeting cards, comics, poems, and more art for global justice offered in the spirit of gift economy." />
       <Box style={{ padding: "6vw 4vw 2vw"}}>
         <Intro as="h1">
-         <AniLink paintDrip hex="#FFC033" to={`/art/`} duration={.7}>Art</AniLink><br/> <span>by Sam Killermann + Friends</span>
+         <span className="art-text">Art</span>
         </Intro>
+        <Box mt={[3, 0]}> 
+          <Description>hues by sK + Friends</Description>
+        </Box>
       </Box>
       <Grid>
       {Projects.map(project => (
@@ -271,4 +266,4 @@ export const query = graphql`
   }
 `;
 
-export default Home;
+export default Art;

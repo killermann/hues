@@ -63,10 +63,8 @@ const ProjectHeader = ({ project, truncated }) => (
       <Box>
         <Title as="h1">{project.title}</Title>
       </Box>
-      <Box>
-        <Box mt={[3, 0]}> 
-          <Description dangerouslySetInnerHTML={{ __html: project.description }} />
-        </Box>
+      <Box mt={[3, 0]}> 
+        <Description dangerouslySetInnerHTML={{ __html: project.description }} />
       </Box>
     <Hero photo={project.featuredPhoto} truncated={truncated} />
   </Box>
