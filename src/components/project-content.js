@@ -9,14 +9,14 @@ import AspectRatioBox from "./aspect-ratio-box";
 export const Category = styled(Text)`
   color: ${props => props.theme.colors.grey};
   font-family: "Barlow Condensed", "Arial Condensed", Impact, sans-serif;
-  font-size: ${props => props.theme.fontSizes[3]}px;
+  font-size: ${props => props.theme.fontSizes[2]}px;
   font-weight: 700;
   line-height: 1;
   text-transform: uppercase;
   letter-spacing: .15em;
   margin: 0;
   @media (min-width: ${props => props.theme.breakpoints[1]}) {
-    font-size: ${props => props.theme.fontSizes[4]}px;
+    font-size: ${props => props.theme.fontSizes[3]}px;
   }
 `;
 

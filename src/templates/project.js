@@ -125,6 +125,7 @@ export const query = graphql`
         fluid {
           ...GatsbyDatoCmsFluid_tracedSVG
         }
+        title
       }
       photos {
         fluid {

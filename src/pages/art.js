@@ -32,7 +32,7 @@ export const Description = styled(Text)`
   font-size: ${props => props.theme.fontSizes[2]}px;
   line-height: 1.2;
   text-align: center;
-  margin: 1em auto 0;
+  margin: .5em auto 0;
   max-width: 30em;
 
   @media (min-width: ${props => props.theme.breakpoints[2]}) {
@@ -55,7 +55,7 @@ const Grid = styled(Box)`
   grid-gap: 4vw;
   grid-auto-rows: 220px;
   grid-auto-flow: row;
-  padding: 4vw;
+  padding: 0 4vw 4vw;
   font-size: ${props => props.theme.fontSizes[3]}px;
 
   .hue {
@@ -228,15 +228,13 @@ const Art = ({ data }) => {
   return (
     <Layout>
       <SEO title="Art created by Sam Killermann + Friends" description="Comedy shows, shirts, greeting cards, comics, poems, and more art for global justice offered in the spirit of gift economy." />
-      <Box style={{ padding: "6vw 4vw 2vw"}}>
+      <Box style={{ padding: "6vw 4vw 0"}}>
         <Intro as="h1">
          <span className="art-text">Art</span>
         </Intro>
-        <Box mt={[3, 0]}> 
           <Description>hues by sK + Friends</Description>
-        </Box>
       </Box>
-      <Grid>
+      <Grid mt={[4, 5]}>
       {Projects.map(project => (
         <GridItem key={project.node.title} project={project.node} />
       ))}

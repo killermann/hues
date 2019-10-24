@@ -10,7 +10,6 @@ export const Title = styled(Heading)`
   text-transform: uppercase;
   line-height: 1;
   text-align: center;
-  hyphens: auto;
   font-size: ${props => props.theme.fontSizes[5]}px;
 
   @media (min-width: ${props => props.theme.breakpoints[2]}) {

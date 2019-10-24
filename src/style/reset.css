@@ -35,13 +35,13 @@ h1, h2, h3, h4, h5, nav, button {
 .resources-text { color: #0092DB !important; }
 .tools-text { color: #FF0ACE !important; }
 
-.art-color { color: #FFC033; }
-.tools-color { color: #FF40DA; }
-.resources-color { color: #42c0ff; }
+.art-color { color: #FFC033 !important; }
+.tools-color { color: #FF40DA !important; }
+.resources-color { color: #42c0ff !important; }
 
-.art-bg { background-color: #FFC033; }
-.tools-bg { background-color: #FF40DA; }
-.resources-bg { background-color: #42c0ff; }
+.art-bg { background-color: #FFC033 !important; }
+.tools-bg { background-color: #FF40DA !important; }
+.resources-bg { background-color: #42c0ff !important; }
 
 @keyframes hvr-pop-out {
   50% {
@@ -70,7 +70,7 @@ h1, h2, h3, h4, h5, nav, button {
   bottom: 0;
   left: 0;
   right: 0;
-  top: 0;
+  height: 80px;
   z-index: 50;
   transition: opacity .3s ease-in;  
 }

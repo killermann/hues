@@ -20,6 +20,7 @@ export const Intro = styled(Heading)`
   a {
     text-decoration: none;
     display: inline-block;
+    margin-bottom: 3px;
     color: rgba(0,0,0,.95);
   }
 
@@ -51,7 +52,6 @@ const Title = styled(Heading)`
   font-weight: 700;
   line-height: 1;
   font-size: 1em;
-  hyphens: auto;
   letter-spacing: .05em;
 `;
 
@@ -61,7 +61,7 @@ const Grid = styled(Box)`
   grid-gap: 4vw;
   grid-auto-rows: 220px;
   grid-auto-flow: row;
-  padding: 4vw;
+  padding: 0 4vw 4vw;
   font-size: ${props => props.theme.fontSizes[3]}px;
 
   .hue {
@@ -259,7 +259,7 @@ const Home = ({ data }) => {
   return (
     <Layout>
       <SEO title="hues: Art, Tools, & Resources for Global Justice" description="Created by Sam Killermann + Friends and offered in the spirit of gift economy." />
-      <Box style={{ padding: "6vw 4vw 2vw"}}>
+      <Box style={{ padding: "6vw 4vw 0"}}>
         <Intro as="h1">
           hues is <AniLink paintDrip hex="#FFC033" to={`/art/`} duration={.7} style={{background: "#FFC033", color: "#946500", padding: "0 .125em"}}>Art</AniLink>, <AniLink paintDrip hex="#FF40DA" to={`/tools/`} duration={.7} style={{background: "#FF40DA", color: "#8A006E", padding: "0 .125em"}}>Tools</AniLink>, &amp; <AniLink paintDrip hex="#42c0ff" to={`/resources/`} duration={.7} style={{background: "#42c0ff", color: "#006699", padding: "0 .125em"}}>Resources</AniLink> for Global Justice created by Sam Killermann + Friends
         </Intro>
@@ -267,7 +267,7 @@ const Home = ({ data }) => {
           <Description>Offered in the spirit of the gift economy</Description>
         </Box>
       </Box>
-      <Grid>
+      <Grid mt={[4, 5]}> 
       {Projects.map(project => (
         <GridItem key={project.node.title} project={project.node} />
       ))}
