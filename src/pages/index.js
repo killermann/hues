@@ -278,7 +278,7 @@ const Home = ({ data }) => {
 
 export const query = graphql`
   {
-    projects: allDatoCmsProject {
+    projects: allDatoCmsProject(sort: {fields: position}) {
       edges {
         node {
           slug

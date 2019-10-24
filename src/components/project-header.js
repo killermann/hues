@@ -38,17 +38,22 @@ const HeroWrap = styled(Box)`
     css`
       max-height: 150px;
       overflow: hidden;
+
+      .gatsby-image-wrapper {
+        opacity: .3;
+      }
+      
     `}
 `;
 
-const Hero = ({ photo, truncated }) => {
+const Hero = ({ project, photo, truncated }) => {
   const withFixedAspectRatio = {
     ...photo.fluid,
     aspectRatio: 1200 / 630
   };
   return (
     <HeroWrap mt={[4, 5]} truncated={truncated}>
-      <AspectRatioBox ratio={1200 / 630}>
+      <AspectRatioBox ratio={1200 / 630} className={`${project.section.slug}-bg`}>
         <Img
           loading={truncated ? "lazy" : "eager"}
           fluid={withFixedAspectRatio}
@@ -66,7 +71,7 @@ const ProjectHeader = ({ project, truncated }) => (
       <Box mt={[3, 0]}> 
         <Description dangerouslySetInnerHTML={{ __html: project.description }} />
       </Box>
-    <Hero photo={project.featuredPhoto} truncated={truncated} />
+    <Hero photo={project.featuredPhoto} project={project} truncated={truncated} />
   </Box>
 );
 

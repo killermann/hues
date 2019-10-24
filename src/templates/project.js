@@ -2,13 +2,13 @@ import React from "react";
 import TransitionLink, { TransitionState } from "gatsby-plugin-transition-link";
 import posed from "react-pose";
 import { graphql } from "gatsby";
-
 import Layout from "../components/layout";
+import SEO from "../components/project-seo";
 import ProjectHeader from "../components/project-header";
 import ProjectContent from "../components/project-content";
 import NextProjectHeading from "../components/next-project-heading";
 
-const TRANSITION_LENGTH = 1.5;
+const TRANSITION_LENGTH = 1.2;
 
 const FadingContent = posed.div({
   exiting: { opacity: 0 }
@@ -60,6 +60,7 @@ const ProjectInner = ({ transitionStatus, project }) => {
 
   return (
     <Layout transitionStatus={transitionStatus}>
+      <SEO meta={project.seoMetaTags}/>
       <FadingContent 
         pose={transitionStatus}
       >
@@ -67,16 +68,20 @@ const ProjectInner = ({ transitionStatus, project }) => {
         <ProjectContent project={project} photos={project.photos} />
       </FadingContent>
       <TransitionLink
+        className={`next-hue-link ${project.next.section.slug}`}
         style={{
           textDecoration: "none",
-          color: "inherit"
+          color: "inherit",
+          display: "block",
+          position: "relative"
         }}
+        title={project.next.title}
         to={nextProjectUrl}
         exit={exitTransition}
         entry={entryTransition}
       >
         <FadingNextProjectHeading pose={transitionStatus}>
-          <NextProjectHeading />
+          <NextProjectHeading project={project.next} />
         </FadingNextProjectHeading>
         <SlidingHeader pose={transitionStatus}>
           <ProjectHeader project={project.next} truncated={shouldTruncate} />
@@ -87,7 +92,7 @@ const ProjectInner = ({ transitionStatus, project }) => {
 };
 
 const Project = ({ pageContext: projectShell, data }) => {
-  const { project, next } = data;
+  const { project, next} = data;
   const aggregateProject = {
     ...projectShell,
     ...project,
@@ -109,6 +114,7 @@ const Project = ({ pageContext: projectShell, data }) => {
 export const query = graphql`
   query($slug: String!, $nextSlug: String!) {
     project: datoCmsProject(slug: { eq: $slug }) {
+      title
       description
       content
       section {
@@ -125,6 +131,9 @@ export const query = graphql`
           ...GatsbyDatoCmsFluid_tracedSVG
         }
       }
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
     }
     next: datoCmsProject(slug: { eq: $nextSlug }) {
       title
@@ -132,6 +141,7 @@ export const query = graphql`
       description
       section {
         name
+        slug
       }
       featuredPhoto {
         fluid {
