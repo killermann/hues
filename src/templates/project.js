@@ -3,7 +3,7 @@ import TransitionLink, { TransitionState } from "gatsby-plugin-transition-link";
 import posed from "react-pose";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
-import SEO from "../components/project-seo";
+import SEO from "../components/seo";
 import ProjectHeader from "../components/project-header";
 import ProjectContent from "../components/project-content";
 import NextProjectHeading from "../components/next-project-heading";
@@ -60,7 +60,7 @@ const ProjectInner = ({ transitionStatus, project }) => {
 
   return (
     <Layout transitionStatus={transitionStatus}>
-      <SEO meta={project.seoMetaTags}/>
+      <SEO title={project.title} description={project.description} image={project.featuredPhoto.url} />
       <FadingContent 
         pose={transitionStatus}
       >
@@ -126,14 +126,12 @@ export const query = graphql`
           ...GatsbyDatoCmsFluid_tracedSVG
         }
         title
+        url
       }
       photos {
         fluid {
           ...GatsbyDatoCmsFluid_tracedSVG
         }
-      }
-      seoMetaTags {
-        ...GatsbyDatoCmsSeoMetaTags
       }
     }
     next: datoCmsProject(slug: { eq: $nextSlug }) {
