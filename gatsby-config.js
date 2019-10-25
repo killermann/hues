@@ -33,6 +33,18 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `hues`,
+        short_name: `hues`,
+        start_url: `/`,
+        icon: `src/images/favicon.png`,
+        background_color: `#ffffff`,
+        theme_color: `#ffffff`,
+        display: `standalone`,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-transition-link`,
     {
@@ -48,7 +60,7 @@ module.exports = {
         fonts: [
           `barlow condensed\:700`
         ],
-        display: 'swap'
+        display: `swap`
       }
     },
     {
@@ -58,7 +70,7 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: `gatsby-plugin-robots-txt`,
       options: {
         policy: [{ userAgent: '*', allow: '/' }]
       }

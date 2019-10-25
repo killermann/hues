@@ -92,7 +92,7 @@ const Grid = styled(Box)`
 
   .hue .gatsby-image-wrapper {
     height: 100%;
-    opacity: .15;
+    opacity: .35;
     transform: scale(1.12);
   }
 
@@ -258,7 +258,7 @@ const Home = ({ data }) => {
   const Projects = data.projects.edges;
   return (
     <Layout>
-      <SEO title="hues: Art, Tools, & Resources for Global Justice" description="Created by Sam Killermann + Friends and offered in the spirit of gift economy." />
+      <SEO title="hues: Art, Tools, & Resources for Global Justice" titleTemplate="hues: Art, Tools, & Resources for Global Justice" description="Created by Sam Killermann + Friends and offered in the spirit of gift economy." />
       <Box style={{ padding: "6vw 4vw 0"}}>
         <Intro as="h1">
           hues is <AniLink paintDrip hex="#FFC033" to={`/art/`} duration={.7} style={{background: "#FFC033", color: "#946500", padding: "0 .125em"}}>Art</AniLink>, <AniLink paintDrip hex="#FF40DA" to={`/tools/`} duration={.7} style={{background: "#FF40DA", color: "#8A006E", padding: "0 .125em"}}>Tools</AniLink>, &amp; <AniLink paintDrip hex="#42c0ff" to={`/resources/`} duration={.7} style={{background: "#42c0ff", color: "#006699", padding: "0 .125em"}}>Resources</AniLink> for Global Justice created by Sam Killermann + Friends

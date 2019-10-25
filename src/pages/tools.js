@@ -86,7 +86,7 @@ const Grid = styled(Box)`
 
   .hue .gatsby-image-wrapper {
     height: 100%;
-    opacity: .15;
+    opacity: .4;
     transform: scale(1.12);
   }
 

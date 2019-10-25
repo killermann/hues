@@ -16,7 +16,7 @@ const theme = {
   },
   fontSizes: [12, 16, 18, 24, 36, 48, 64],
   colors: {
-    grey: "#8C8C8C",
+    grey: "#6B6F71",
     lightgrey: "rgba(0,0,0,.5)",
     faintgrey: "#F7F7F7",
     black: "#000",
