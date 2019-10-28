@@ -14,7 +14,7 @@ export const Intro = styled(Heading)`
   text-transform: uppercase;
   line-height: 1;
   text-align: center;
-  margin: 0;
+  margin: 0 auto;
   font-size: ${props => props.theme.fontSizes[4]}px;
 
   @media (min-width: ${props => props.theme.breakpoints[1]}) {
@@ -26,14 +26,16 @@ export const Intro = styled(Heading)`
   }
 `;
 
-export const Description = styled(Text)`
+export const Description = styled(Heading)`
   font-weight: 400;
   color: ${props => props.theme.colors.grey};
   font-size: ${props => props.theme.fontSizes[2]}px;
+  font-family: ${props => props.theme.fonts.sans};
   line-height: 1.2;
   text-align: center;
-  margin: .5em auto 0;
+  margin: 2vw auto 0;
   max-width: 30em;
+  font-weight: 400;
 
   @media (min-width: ${props => props.theme.breakpoints[2]}) {
     font-size: ${props => props.theme.fontSizes[3]}px;
@@ -229,10 +231,10 @@ const Art = ({ data }) => {
     <Layout>
       <SEO title="Art created by Sam Killermann + Friends" description="Comedy shows, shirts, greeting cards, comics, poems, and more art for global justice offered in the spirit of gift economy." />
       <Box style={{ padding: "6vw 4vw 0"}}>
-        <Intro as="h1">
-         <span className="art-text">Art</span>
+        <Intro as="h1" className="art-text">
+          Art
         </Intro>
-          <Description>hues by sK + Friends</Description>
+        <Description as="h2">hues by sK + Friends</Description>
       </Box>
       <Grid mt={[4, 5]}>
       {Projects.map(project => (
@@ -245,7 +247,7 @@ const Art = ({ data }) => {
 
 export const query = graphql`
   {
-    projects: allDatoCmsProject (filter: { section: { slug: { eq: "art"} } } ) {
+    projects: allDatoCmsProject (filter: { section: { slug: { eq: "art"} } } sort: {fields: position} ) {
       edges {
         node {
           slug

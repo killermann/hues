@@ -39,11 +39,23 @@ module.exports = {
         name: `hues`,
         short_name: `hues`,
         start_url: `/`,
-        icon: `src/images/favicon.png`,
+        icon: `src/images/logo-512x512.png`,
         background_color: `#ffffff`,
         theme_color: `#ffffff`,
         display: `standalone`,
       },
+      icons: [
+        {
+          src: `src/images/logo-192x192.png`,
+          sizes: `192x192`,
+          type: `image/png`
+        },
+        {
+          src: `src/images/logo-512x512.png`,
+          sizes: `512x512`,
+          type: `image/png`
+        }
+      ]
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-transition-link`,

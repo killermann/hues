@@ -17,14 +17,16 @@ export const Title = styled(Heading)`
   }
 `;
 
-export const Description = styled(Text)`
+export const Description = styled(Heading)`
   font-weight: 400;
   color: ${props => props.theme.colors.grey};
   font-size: ${props => props.theme.fontSizes[2]}px;
+  font-family: ${props => props.theme.fonts.sans};
   line-height: 1.2;
   text-align: center;
-  margin: 1em auto 0;
+  margin: 2vw auto 0;
   max-width: 30em;
+  font-weight: 400;
 
   @media (min-width: ${props => props.theme.breakpoints[2]}) {
     font-size: ${props => props.theme.fontSizes[3]}px;
@@ -35,7 +37,7 @@ const HeroWrap = styled(Box)`
   ${props =>
     props.truncated &&
     css`
-      max-height: 150px;
+      max-height: 160px;
       overflow: hidden;
 
       .gatsby-image-wrapper {
@@ -67,9 +69,7 @@ const ProjectHeader = ({ project, truncated }) => (
       <Box>
         <Title as="h1">{project.title}</Title>
       </Box>
-      <Box mt={[3, 0]}> 
-        <Description dangerouslySetInnerHTML={{ __html: project.description }} />
-      </Box>
+      <Description as="h2" dangerouslySetInnerHTML={{ __html: project.description }} />
     <Hero photo={project.featuredPhoto} project={project} truncated={truncated} />
   </Box>
 );

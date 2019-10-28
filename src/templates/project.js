@@ -122,6 +122,9 @@ export const query = graphql`
         slug
       }
       projectStatus
+      link
+      purchaseLink
+      downloadLink
       featuredPhoto {
         fluid {
           ...GatsbyDatoCmsFluid_tracedSVG

@@ -14,7 +14,7 @@ export const Intro = styled(Heading)`
   text-transform: uppercase;
   line-height: 1;
   text-align: center;
-  margin: 0;
+  margin: 0 auto;
   font-size: ${props => props.theme.fontSizes[4]}px;
 
   @media (min-width: ${props => props.theme.breakpoints[1]}) {
@@ -26,14 +26,16 @@ export const Intro = styled(Heading)`
   }
 `;
 
-export const Description = styled(Text)`
+export const Description = styled(Heading)`
   font-weight: 400;
   color: ${props => props.theme.colors.grey};
   font-size: ${props => props.theme.fontSizes[2]}px;
+  font-family: ${props => props.theme.fonts.sans};
   line-height: 1.2;
   text-align: center;
-  margin: .5em auto 0;
+  margin: 2vw auto 0;
   max-width: 30em;
+  font-weight: 400;
 
   @media (min-width: ${props => props.theme.breakpoints[2]}) {
     font-size: ${props => props.theme.fontSizes[3]}px;
@@ -231,7 +233,7 @@ const Tools = ({ data }) => {
         <Intro as="h1">
          <span className="tools-text">Tools</span>
         </Intro>
-        <Description>hues by sK + Friends</Description>
+        <Description as="h2">hues by sK + Friends</Description>
       </Box>
       <Grid mt={[4, 5]}>
       {Projects.map(project => (
@@ -244,7 +246,7 @@ const Tools = ({ data }) => {
 
 export const query = graphql`
   {
-    projects: allDatoCmsProject (filter: { section: { slug: { eq: "tools"} } } ) {
+    projects: allDatoCmsProject (filter: { section: { slug: { eq: "tools"} } } sort: {fields: position} ) {
       edges {
         node {
           slug
