@@ -56,13 +56,10 @@ export const ProjectStatus = styled(Text)`
 `;
 
 const Links = styled(Box)`
-  background: white; 
-  margin: 4vw auto 0 !important; 
+  margin: 3vw auto 0 !important; 
   display: flex; 
-  justify-content: center; 
   flex-wrap: wrap;
   align-items: center; 
-  padding: 4vw;
 
   a {
     padding: .9em 1.5em 1.1em; 
@@ -72,7 +69,7 @@ const Links = styled(Box)`
     line-height: 1;
     letter-spacing: .2em;
     font-family: "Barlow Condensed", "Arial Condensed", Impact, sans-serif;
-    margin: 1vw;
+    margin: 1vw 1vw 0 0;
     border-radius: .25em;
     box-shadow: inset 0px -.25em 0 0 currentColor;
   }
@@ -171,7 +168,7 @@ const ProjectContent = ({ photos, project }) => {
               aspectRatio: 8 / 5
             };
             return (
-              <AspectRatioBox key={index} ratio={8 / 5} style={{ marginBottom: "4vw" }} >
+              <AspectRatioBox key={index} ratio={8 / 5} style={{ marginBottom: "4vw" }}>
                 <Img fluid={withFixedAspectRatio}/>
               </AspectRatioBox>
             );
