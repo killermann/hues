@@ -3,7 +3,6 @@ import { ThemeProvider } from "styled-components";
 import { Box, Image } from "rebass";
 import posed from "react-pose";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
-
 import "../style/reset.css";
 import Logo from "./logo.svg";
 

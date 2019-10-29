@@ -94,10 +94,10 @@ const Grid = styled(Box)`
 const CMS = styled(Box)`
   color: ${props => props.theme.colors.grey};
   font-size: 18px;
+  line-height: 1.4;
   
   p {
     margin-bottom: 1.5em;
-    line-height: 1.444;
     text-align: justify;
   }
 
@@ -107,10 +107,6 @@ const CMS = styled(Box)`
 
   a:visited {
     color: black;
-  }
-
-  p:last-child {
-    margin-bottom: 0;
   }
 
   @media screen and (min-width: 1024px) {
