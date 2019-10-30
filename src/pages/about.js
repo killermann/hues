@@ -25,7 +25,7 @@ const About = ({ data }) => {
       <SEO title="About the Global Justice Collective" description="Hues is art, tools, & resources for global justice created by Sam Killermann + Friends" />
       <Grid style={{ padding: "6vw 4vw 0"}}>
         <Box style={{ padding: "0 0 4vw",}}>
-          <Title style={{paddinBottom: "4vw", textAlign: "left", }} as="h1">{Page.title}</Title>
+          <Title style={{paddingBottom: "4vw", textAlign: "left", }} as="h1">{Page.title}</Title>
           <Description as="h2" style={{textAlign: "left", marginBottom: "4vw", }} >{Page.subtitle}</Description>
           <CMS dangerouslySetInnerHTML={{ __html: Page.content }} />
         </Box>
