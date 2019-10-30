@@ -51,9 +51,6 @@ typings/
 # Output of 'npm pack'
 *.tgz
 
-# Making Netlify Happy
-yarn.lock
-
 # dotenv environment variables file
 .env
 .env.development
