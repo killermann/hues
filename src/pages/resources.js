@@ -7,24 +7,7 @@ import Description from "../components/description";
 import Layout from "../components/layout";
 import ProjectGrid from "../components/project-grid";
 import GridItem from "../components/grid-item";
-
-export const Intro = styled(Heading)`
-  color: ${props => props.theme.colors.black};
-  font-weight: 700;
-  text-transform: uppercase;
-  line-height: 1;
-  text-align: center;
-  margin: 0 auto;
-  font-size: ${props => props.theme.fontSizes[4]}px;
-
-  @media (min-width: ${props => props.theme.breakpoints[1]}) {
-    font-size: ${props => props.theme.fontSizes[5]}px;
-  }
-
-  @media (min-width: ${props => props.theme.breakpoints[2]}) {
-    font-size: ${props => props.theme.fontSizes[6]}px;
-  }
-`;
+import Title from "../components/title";
 
 const Resources = ({ data }) => {
   const Projects = data.projects.edges;
@@ -32,10 +15,10 @@ const Resources = ({ data }) => {
     <Layout>
       <SEO title="Resources created by Sam Killermann + Friends" description="Websites, blogs, online courses, social movements, and more resources for global justice offered in the spirit of gift economy." />
       <Box style={{ padding: "6vw 4vw 0"}}>
-        <Intro as="h1" className="resources-text">
+        <Title as="h1" className="resources-text">
           Resources
-        </Intro>
-        <Description as="h2">hues by sK + Friends</Description>
+        </Title>
+        <Description as="h2" className="resources-text">hues by sK + Friends</Description>
       </Box>
       <ProjectGrid mt={[4, 5]}> 
       {Projects.map(project => (

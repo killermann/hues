@@ -17,7 +17,7 @@ const Art = ({ data }) => {
         <Title as="h1" className="art-text">
           Art
         </Title>
-        <Description as="h2">hues by sK + Friends</Description>
+        <Description as="h2" className="art-text">hues by sK + Friends</Description>
       </Box>
       <ProjectGrid mt={[4, 5]}>
       {Projects.map(project => (
