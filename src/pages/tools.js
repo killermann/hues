@@ -27,7 +27,7 @@ export const Intro = styled(Heading)`
 `;
 
 export const Description = styled(Heading)`
-  font-weight: 400;
+  font-weight: 500;
   color: ${props => props.theme.colors.grey};
   font-size: ${props => props.theme.fontSizes[2]}px;
   font-family: ${props => props.theme.fonts.sans};
@@ -35,7 +35,6 @@ export const Description = styled(Heading)`
   text-align: center;
   margin: 2vw auto 0;
   max-width: 30em;
-  font-weight: 400;
 
   @media (min-width: ${props => props.theme.breakpoints[2]}) {
     font-size: ${props => props.theme.fontSizes[3]}px;
