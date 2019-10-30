@@ -60,6 +60,9 @@ typings/
 .cache/
 public
 
+# double packages mess up netlify
+package.json
+
 # Mac files
 .DS_Store
 
