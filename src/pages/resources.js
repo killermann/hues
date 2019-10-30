@@ -1,7 +1,8 @@
 import React from "react";
 import SEO from "../components/seo";
 import { graphql } from "gatsby";
-import { Box } from "rebass";
+import { Box, Heading } from "rebass";
+import styled from "styled-components";
 import Description from "../components/description";
 import Layout from "../components/layout";
 import ProjectGrid from "../components/project-grid";
