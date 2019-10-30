@@ -3,8 +3,8 @@ import { Box, Text } from "rebass";
 import styled from "styled-components";
 import Img from "gatsby-image";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
-
 import AspectRatioBox from "./aspect-ratio-box";
+import CMS from "../components/cms";
 
 export const Category = styled(Text)`
   color: ${props => props.theme.colors.grey};
@@ -26,7 +26,7 @@ export const Category = styled(Text)`
 `;
 
 export const ProjectStatus = styled(Text)`
-  font-size: ${props => props.theme.fontSizes[1]}px;
+  font-size: ${props => props.theme.fontSizes[0]}px;
   color: ${props => props.theme.colors.grey};
 
   span {
@@ -51,7 +51,7 @@ export const ProjectStatus = styled(Text)`
   span.Backburner:before { background: #FFCD00; }
 
   @media (min-width: ${props => props.theme.breakpoints[1]}) {
-    font-size: ${props => props.theme.fontSizes[2]}px;
+    font-size: ${props => props.theme.fontSizes[1]}px;
   }
 `;
 
@@ -90,29 +90,6 @@ const Grid = styled(Box)`
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 4vw;
 `;
-
-const CMS = styled(Box)`
-  color: ${props => props.theme.colors.grey};
-  font-size: 18px;
-  line-height: 1.4;
-  
-  p {
-    margin-bottom: 1.5em;
-    text-align: justify;
-  }
-
-  a {
-    color: black;
-  }
-
-  a:visited {
-    color: black;
-  }
-
-  @media screen and (min-width: 1024px) {
-    font-size: 21px;
-  } 
-`
 
 
 const ProjectContent = ({ photos, project }) => {

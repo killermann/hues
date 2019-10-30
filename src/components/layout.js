@@ -13,7 +13,7 @@ const theme = {
   fonts: {
     sans: "system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
   },
-  fontSizes: [12, 16, 18, 24, 36, 48, 64],
+  fontSizes: [14, 18, 24, 32, 48, 60, 72],
   colors: {
     grey: "#6B6F71",
     lightgrey: "rgba(0,0,0,.5)",
