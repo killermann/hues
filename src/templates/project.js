@@ -126,11 +126,9 @@ export const query = graphql`
       purchaseLink
       downloadLink
       featuredPhoto {
-        fluid {
+        fluid{
           ...GatsbyDatoCmsFluid_tracedSVG
         }
-        title
-        url
       }
       photos {
         fluid {
@@ -147,7 +145,7 @@ export const query = graphql`
         slug
       }
       featuredPhoto {
-        fluid {
+        fluid{
           ...GatsbyDatoCmsFluid_tracedSVG
         }
       }
