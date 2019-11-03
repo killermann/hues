@@ -127,12 +127,12 @@ export const query = graphql`
       downloadLink
       featuredPhoto {
         fluid{
-          ...GatsbyDatoCmsFluid_tracedSVG
+          ...GatsbyDatoCmsFluid
         }
       }
       photos {
         fluid {
-          ...GatsbyDatoCmsFluid_tracedSVG
+          ...GatsbyDatoCmsFluid
         }
       }
     }
@@ -146,7 +146,7 @@ export const query = graphql`
       }
       featuredPhoto {
         fluid{
-          ...GatsbyDatoCmsFluid_tracedSVG
+          ...GatsbyDatoCmsFluid
         }
       }
     }

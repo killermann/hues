@@ -63,7 +63,7 @@ export const query = graphql`
       content
       photos {
         fluid {
-          ...GatsbyDatoCmsFluid_tracedSVG
+          ...GatsbyDatoCmsFluid
         }
       }
     }

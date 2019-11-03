@@ -80,7 +80,7 @@ export const query = graphql`
           }
           featuredPhoto {
             fluid{
-              ...GatsbyDatoCmsFluid_tracedSVG
+              ...GatsbyDatoCmsFluid
             }
           }
         }
